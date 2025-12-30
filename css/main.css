@@ -1,0 +1,214 @@
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1920px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 64px;
+}
+.header .site-logo {
+  margin: 0px;
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(#016630 0%, #016630 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.header ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+.header ul li {
+  list-style-type: none;
+}
+.header ul li a {
+  font-weight: 400;
+  color: #162456;
+  text-decoration: none;
+  font-size: 16px;
+}
+.header ul li a.shop-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header ul li a.shop-link::after {
+  content: "";
+  background-image: url("../assets/chevron-down.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.header .search-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+}
+.header .search-cta .search-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+.header .search-cta .shop-now--button {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 18px;
+  color: white;
+  border: 0px;
+  background: linear-gradient(#032e15 0%, #016630 100%);
+  border-radius: 50px;
+  padding: 16px 28px;
+}
+
+footer {
+  background-color: #032e15;
+  padding: 75px 81px 93px 81px;
+  color: white;
+}
+footer a {
+  color: white;
+}
+
+.site-logo--footer {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 45px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-bottom .footer-menus {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px;
+  margin: 0px;
+}
+.footer-bottom .footer-menus ul {
+  display: flex;
+  flex-direction: column;
+}
+.footer-bottom .footer-menus ul li {
+  list-style-type: none;
+  margin: 0px;
+  padding: 8px 0px;
+}
+.footer-bottom .footer-menus ul li a {
+  text-decoration: none;
+  font-family: "Oxanium", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+.footer-bottom .footer-menus ul li a:hover {
+  text-decoration: underline;
+}
+.footer-bottom .footer-menus ul li a.facebook {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+}
+.footer-bottom .footer-menus ul li a.facebook::before {
+  content: "";
+  background-image: url("../assets/facebook-icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.footer-bottom .footer-menus ul li a.x {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+}
+.footer-bottom .footer-menus ul li a.x::before {
+  content: "";
+  background-image: url("../assets/x-icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.footer-bottom .footer-menus ul li a.instagram {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+}
+.footer-bottom .footer-menus ul li a.instagram::before {
+  content: "";
+  background-image: url("../assets/instagram-icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.footer-bottom .newsletter {
+  margin: 0px;
+}
+.footer-bottom .newsletter h3 {
+  color: #fef3e4;
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.footer-bottom .newsletter .newsletter-input input {
+  border: 1px solid white;
+  padding: 12px;
+  background-color: transparent;
+  width: 304px;
+  margin-right: 14px;
+  color: white;
+}
+.footer-bottom .newsletter .newsletter-input input::placeholder {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+}
+.footer-bottom .newsletter .newsletter-input button {
+  padding: 12px 24px;
+  background-color: #653b09;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+}
+.footer-bottom .newsletter p {
+  margin-top: 16px;
+  font-weight: 300;
+  font-size: 12px;
+  font-family: "Oxanium", sans-serif;
+}
+.footer-bottom .newsletter p a:hover {
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=main.css.map */
