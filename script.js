@@ -27,26 +27,29 @@ document.addEventListener('keydown', (e) => {
     hamburger.setAttribute('aria-expanded', false);
   }
 });
-/* ================= IMAGE GALLERY ================= */
+
 const images = [
-  './assets/thumb-1.png',
-  './assets/thumb-2.png',
-  './assets/thumb-3.png',
-  './assets/thumb-4.png',
-  './assets/thumb-1.png',
-  './assets/thumb-2.png',
-  './assets/thumb-3.png',
-  './assets/thumb-4.png',
+  './assets/main-thumb.png',
+  './assets/thumb-2.jpg',
+  './assets/thumb-3.jpg',
+  './assets/thumb-4.jpg',
+  './assets/thumb-1.jpg',
+  './assets/thumb-2.jpg',
+  './assets/thumb-3.jpg',
+  './assets/thumb-4.jpg',
 ];
 
-/* ================= IMAGE GALLERY ================= */
-
 let current = 0;
+
 const mainImage = document.getElementById('mainImage');
 const dotsContainer = document.getElementById('dots');
+const thumbnails = document.querySelectorAll('.thumbnails img');
+
+/* ================= DOTS ================= */
 
 function renderDots() {
   dotsContainer.innerHTML = '';
+
   images.forEach((_, i) => {
     const dot = document.createElement('span');
     dot.classList.toggle('active', i === current);
@@ -55,11 +58,27 @@ function renderDots() {
   });
 }
 
+/* ================= THUMBNAILS ================= */
+
+function updateThumbnails() {
+  thumbnails.forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === current);
+  });
+}
+
+/* ================= MAIN CHANGE ================= */
+
 function changeImage(index) {
+  if (index < 0 || index >= images.length) return;
+
   current = index;
   mainImage.src = images[current];
+
   renderDots();
+  updateThumbnails();
 }
+
+/* ================= CONTROLS ================= */
 
 document.querySelector('.next').onclick = () =>
   changeImage((current + 1) % images.length);
@@ -67,11 +86,13 @@ document.querySelector('.next').onclick = () =>
 document.querySelector('.prev').onclick = () =>
   changeImage((current - 1 + images.length) % images.length);
 
-document.querySelectorAll('.thumbnails img').forEach((img) => {
-  img.onclick = () => changeImage(+img.dataset.index);
+thumbnails.forEach((img, i) => {
+  img.onclick = () => changeImage(i);
 });
 
-renderDots();
+/* ================= INIT ================= */
+
+changeImage(0); // ensures sync on load
 
 //accordions
 const accordionItems = document.querySelectorAll('.accordion-item');
