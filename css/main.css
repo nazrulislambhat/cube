@@ -387,6 +387,11 @@ footer .footer-menus a.x::before {
 footer .newsletter {
   margin: 0;
 }
+@media (min-width: 75rem) {
+  footer .newsletter {
+    width: 505px;
+  }
+}
 footer .newsletter h3 {
   color: var(--color-text-cream);
   margin-bottom: 1.5rem; /* 24px */
@@ -407,6 +412,11 @@ footer .newsletter-input input {
   margin: 0;
   box-shadow: none;
   font-size: 1rem;
+}
+@media (min-width: 75rem) {
+  footer .newsletter-input input {
+    width: 365px;
+  }
 }
 footer .newsletter-input input:focus {
   outline: 2px solid var(--color-accent-green);
@@ -439,7 +449,11 @@ footer .newsletter p {
 
 .hero {
   min-height: 100vh;
-  background: image-set("../assets/hero-bg.png") center bottom/cover no-repeat;
+  background-color: #032e15;
+  background-image: image-set(url("../assets/hero-bg.png") type('image/png'));
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   position: relative;
@@ -891,6 +905,7 @@ tbody tr .highlight {
 .add-to-cart {
   width: 100%;
   text-align: center;
+  margin-top: 14px !important;
 }
 
 .cta {

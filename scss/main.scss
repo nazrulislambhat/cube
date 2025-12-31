@@ -391,6 +391,9 @@ footer {
 
   .newsletter {
     margin: 0;
+    @include up(xl) {
+      width: 505px;
+    }
     h3 {
       color: var(--color-text-cream);
       margin-bottom: 1.5rem; /* 24px */
@@ -414,6 +417,9 @@ footer {
     margin: 0;
     box-shadow: none;
     font-size: 1rem;
+    @include up(xl) {
+      width: 365px;
+    }
     &:focus {
       outline: 2px solid var(--color-accent-green);
     }
@@ -450,7 +456,11 @@ footer {
 
 .hero {
   min-height: 100vh;
-  background: image-set('../assets/hero-bg.png') center bottom / cover no-repeat;
+  background-color: #032e15; // fallback (prevents white flash)
+  background-image: image-set(url('../assets/hero-bg.png') type('image/png'));
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   position: relative;
@@ -883,6 +893,7 @@ tbody tr .highlight {
 .add-to-cart {
   width: 100%;
   text-align: center;
+  margin-top: 14px !important;
 }
 .cta {
   display: inline-block;
