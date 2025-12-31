@@ -39,6 +39,8 @@ const images = [
   './assets/thumb-4.png',
 ];
 
+/* ================= IMAGE GALLERY ================= */
+
 let current = 0;
 const mainImage = document.getElementById('mainImage');
 const dotsContainer = document.getElementById('dots');
@@ -71,35 +73,7 @@ document.querySelectorAll('.thumbnails img').forEach((img) => {
 
 renderDots();
 
-/* ================= RADIO LOGIC ================= */
-const addToCart = document.getElementById('addToCart');
-const singleBox = document.getElementById('singleBox');
-const doubleBox = document.getElementById('doubleBox');
-
-function updateCartLink() {
-  const purchase = document.querySelector(
-    'input[name="purchase"]:checked'
-  ).value;
-  const fragrance = document.querySelector(
-    'input[name="fragrance"]:checked'
-  ).value;
-
-  addToCart.href = `/cart/${purchase}-${fragrance}`;
-}
-
-document.querySelectorAll('input[name="purchase"]').forEach((radio) => {
-  radio.onchange = () => {
-    singleBox.classList.toggle('active', radio.value === 'single');
-    doubleBox.classList.toggle('active', radio.value === 'double');
-    updateCartLink();
-  };
-});
-
-document.querySelectorAll('input[name="fragrance"]').forEach((radio) => {
-  radio.onchange = updateCartLink;
-});
-
-updateCartLink();
+//accordions
 const accordionItems = document.querySelectorAll('.accordion-item');
 
 accordionItems.forEach((item) => {
@@ -117,3 +91,138 @@ accordionItems.forEach((item) => {
     item.querySelector('.icon').textContent = isActive ? '−' : '+';
   });
 });
+//add to cart
+const state = {
+  purchase: 'single',
+  singleFragrance: 'original',
+  doubleFragrance1: 'frag1',
+  doubleFragrance2: 'frag2',
+};
+
+/* -------------------------
+   DOM
+-------------------------- */
+const addToCartBtn = document.getElementById('addToCart');
+
+const singleBox = document.getElementById('singleBox');
+const doubleBox = document.getElementById('doubleBox');
+
+/* -------------------------
+   HELPERS
+-------------------------- */
+function normalize(text) {
+  return text.toLowerCase().trim();
+}
+
+function updateAddToCartURL() {
+  let url = '/cart?';
+
+  if (state.purchase === 'single') {
+    url += `type=single&frag=${state.singleFragrance}`;
+  } else {
+    url += `type=double&frag1=${state.doubleFragrance1}&frag2=${state.doubleFragrance2}`;
+  }
+
+  addToCartBtn.href = url;
+  console.log('Add to cart URL:', url);
+}
+
+/* -------------------------
+   PURCHASE TYPE TOGGLE
+-------------------------- */
+document.querySelectorAll('input[name="purchase"]').forEach((radio) => {
+  radio.addEventListener('change', (e) => {
+    state.purchase = e.target.value;
+
+    if (state.purchase === 'single') {
+      singleBox.classList.add('active');
+      doubleBox.classList.remove('active');
+    } else {
+      doubleBox.classList.add('active');
+      singleBox.classList.remove('active');
+    }
+
+    updateAddToCartURL();
+  });
+});
+
+/* -------------------------
+   SINGLE FRAGRANCE
+-------------------------- */
+document.querySelectorAll('#singleBox .fragrance').forEach((card) => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('#singleBox .fragrance');
+
+    state.singleFragrance = normalize(card.querySelector('span').innerText);
+
+    updateAddToCartURL();
+  });
+});
+
+/* -------------------------
+   DOUBLE – FRAGRANCE 1
+-------------------------- */
+document.querySelectorAll('.fragrance-1 .fragrance').forEach((card) => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.fragrance-1 .fragrance');
+
+    state.doubleFragrance1 = normalize(card.querySelector('span').innerText);
+
+    updateAddToCartURL();
+  });
+});
+
+/* -------------------------
+   DOUBLE – FRAGRANCE 2
+-------------------------- */
+document.querySelectorAll('.fragrance-2 .fragrance').forEach((card) => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.fragrance-2 .fragrance');
+
+    state.doubleFragrance2 = normalize(card.querySelector('span').innerText);
+
+    updateAddToCartURL();
+  });
+});
+
+/* -------------------------
+   INIT
+-------------------------- */
+updateAddToCartURL();
+
+//numbers counter
+
+const counters = document.querySelectorAll('.stat h3');
+
+const animateCounter = (el) => {
+  const target = +el.dataset.percent;
+  let current = 0;
+  const duration = 1200; // ms
+  const increment = target / (duration / 16);
+
+  const update = () => {
+    current += increment;
+    if (current < target) {
+      el.textContent = `${Math.round(current)}%`;
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = `${target}%`;
+    }
+  };
+
+  update();
+};
+
+const observer = new IntersectionObserver(
+  (entries, obs) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        obs.unobserve(entry.target); // run only once
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
+
+counters.forEach((counter) => observer.observe(counter));

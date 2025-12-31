@@ -71,27 +71,191 @@
       </div>
     </section>
     <section class="product">
+      <!-- LEFT: GALLERY -->
       <div class="gallery">
         <div class="gallery-main">
-          <button class="nav prev">‹</button>
-          <img id="mainImage" src="../assets/main-thumb.png" alt="Perfume" />
-          <button class="nav next">›</button>
+          <img src="./assets/left-arrow.png" class="prev" />
+          <img
+            id="mainImage"
+            class="main-image"
+            src="./assets/main-thumb.png"
+            alt="Perfume"
+          />
+          <img src="./assets/left-arrow.png" class="next" />
+          <div class="dots" id="dots"></div>
         </div>
-
-        <div class="dots" id="dots"></div>
 
         <div class="thumbnails">
-          <img data-index="0" src="./assets/thumb-1.png" />
-          <img data-index="1" src="./assets/thumb-2.png" />
-          <img data-index="2" src="./assets/thumb-3.png" />
-          <img data-index="3" src="./assets/thumb-4.png" />
-          <img data-index="4" src="./assets/thumb-1.png" />
-          <img data-index="5" src="./assets/thumb-2.png" />
-          <img data-index="6" src="./assets/thumb-3.png" />
-          <img data-index="7" src="./assets/thumb-4.png" />
+          <img data-index="1" src="./assets/thumb-1.png" />
+          <img data-index="2" src="./assets/thumb-2.png" />
+          <img data-index="3" src="./assets/thumb-3.png" />
+          <img data-index="4" src="./assets/thumb-4.png" />
+          <img data-index="5" src="./assets/thumb-1.png" />
+          <img data-index="6" src="./assets/thumb-2.png" />
+          <img data-index="7" src="./assets/thumb-3.png" />
+          <img data-index="8" src="./assets/thumb-4.png" />
         </div>
       </div>
+
+      <!-- RIGHT: PRODUCT INFO -->
+      <div class="info">
+        <h1>GTG Perfumes</h1>
+        <p class="rating">
+          <span class="stars">★★★★★</span> 4.7 (999+ reviews)
+        </p>
+        <p class="experience">
+          Experience the timeless allure backed by modern artistry, captured in
+          every bottle of our fragrance. Crafted for those who seek to elevate
+          their essence with purpose and sophistication.
+        </p>
+        <div class="single-subscription-wrapper">
+          <span class="most-popular">Most Popular</span>
+          <!-- PURCHASE TYPE -->
+          <div class="option-group">
+            <label class="single">
+              <input type="radio" name="purchase" value="single" checked />
+              Single Subscription
+              <span class="price"
+                >$99.99<span class="old-price">$146</span></span
+              >
+            </label>
+
+            <div class="expandable active" id="singleBox">
+              <p class="choose">Choose a Fragrance</p>
+              <div class="fragrances">
+                <div class="selected fragrance">
+                  <input type="radio" name="original" value="single" checked />
+                  <span>Original</span>
+                  <img src="./assets/catalog-1.png" />
+                </div>
+                <div class="fragrance">
+                  <input type="radio" name="original" value="single" />
+                  <span>Lily</span>
+                  <img src="./assets/catalog-2.png" />
+                </div>
+                <div class="fragrance">
+                  <input type="radio" name="original" value="single" />
+                  <span>Rose</span>
+                  <img src="./assets/catalog-3.png" />
+                </div>
+              </div>
+              <div class="included">
+                <p class="included-title">What's Included:</p>
+                <div class="included-images">
+                  <div class="included-main-image">
+                    <p>Every 30 Days</p>
+                    <img src="./assets/catalog-1.png" />
+                  </div>
+
+                  <div class="included-three-images">
+                    <p>One Time <span>(Free)</span></p>
+                    <div class="images">
+                      <img src="./assets/catalog-1.png" />
+                      <img src="./assets/catalog-2.png" />
+                      <img src="./assets/catalog-3.png" />
+                    </div>
+                  </div>
+                </div>
+                <ul class="included-features">
+                  <li>1 bottle shipped monthly</li>
+                  <li>
+                    <span>Free</span> Sampler for original, lily and rose
+                    fragrances
+                  </li>
+                  <li><span>50% OFF Shipping</span></li>
+                  <li>Pause or Cancel Anytime after 3 months minimum</li>
+                  <li>28 Day Money Back Guarantee*</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="double-subscription-wrapper">
+          <div class="option-group">
+            <label class="double">
+              <input type="radio" name="purchase" value="double" />
+              Double Subscription
+              <span class="price"
+                >$169.99<span class="old-price">$146</span></span
+              >
+            </label>
+
+            <div class="expandable" id="doubleBox">
+              <div class="fragrance-1">
+                <p class="choose-1">Choose a Fragrance 1</p>
+                <div class="fragrances">
+                  <div class="selected fragrance">
+                    <input type="radio" name="frag1" value="double" checked />
+                    <span>Original</span>
+                    <img src="./assets/catalog-1.png" />
+                  </div>
+                  <div class="fragrance">
+                    <input type="radio" name="frag1" value="double" />
+                    <span>Lily</span>
+                    <img src="./assets/catalog-2.png" />
+                  </div>
+                  <div class="fragrance">
+                    <input type="radio" name="frag1" value="double" />
+                    <span>Rose</span>
+                    <img src="./assets/catalog-3.png" />
+                  </div>
+                </div>
+              </div>
+              <div class="fragrance-2">
+                <p class="choose-2">Choose a Fragrance 2</p>
+                <div class="fragrances">
+                  <div class="selected fragrance">
+                    <input type="radio" name="frag2" value="double" checked />
+                    <span>Original</span>
+                    <img src="./assets/catalog-1.png" />
+                  </div>
+                  <div class="fragrance">
+                    <input type="radio" name="frag2" value="single" />
+                    <span>Lily</span>
+                    <img src="./assets/catalog-2.png" />
+                  </div>
+                  <div class="fragrance">
+                    <input type="radio" name="frag2" value="double" />
+                    <span>Rose</span>
+                    <img src="./assets/catalog-3.png" />
+                  </div>
+                </div>
+              </div>
+              <div class="included">
+                <p class="included-title">What's Included:</p>
+                <div class="included-images">
+                  <div class="included-main-image">
+                    <p>Every 30 Days</p>
+                    <img src="./assets/catalog-1.png" />
+                  </div>
+
+                  <div class="included-three-images">
+                    <p>One Time <span>(Free)</span></p>
+                    <div class="images">
+                      <img src="./assets/catalog-1.png" />
+                      <img src="./assets/catalog-2.png" />
+                      <img src="./assets/catalog-3.png" />
+                    </div>
+                  </div>
+                </div>
+                <ul class="included-features">
+                  <li>1 bottle shipped monthly</li>
+                  <li>
+                    <strong>Free</strong> Sampler for original, lily and rose
+                    fragrances
+                  </li>
+                  <li><strong>50% OFF Shipping</strong></li>
+                  <li>Pause or Cancel Anytime after 3 months minimum</li>
+                  <li>28 Day Money Back Guarantee*</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a id="addToCart" class="cta add-to-cart" href="#">Add to Cart</a>
+      </div>
     </section>
+
     <section class="collection">
       <div class="collection__container">
         <!-- LEFT -->
@@ -153,38 +317,27 @@
     <section class="stats-strip">
       <div class="stats-strip__container">
         <div class="stat">
-          <h3>84%</h3>
-          <p>
-            Lorem ipsum dolor sit amet,<br />
-            consectetur adipiscing elit
-          </p>
+          <h3 data-percent="84">0%</h3>
+          <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit</p>
         </div>
 
         <div class="stat">
-          <h3>78%</h3>
-          <p>
-            Lorem ipsum dolor sit amet,<br />
-            consectetur adipiscing elit
-          </p>
+          <h3 data-percent="78">0%</h3>
+          <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit</p>
         </div>
 
         <div class="stat">
-          <h3>89%</h3>
-          <p>
-            Lorem ipsum dolor sit amet,<br />
-            consectetur adipiscing elit
-          </p>
+          <h3 data-percent="89">0%</h3>
+          <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit</p>
         </div>
 
         <div class="stat">
-          <h3>90%</h3>
-          <p>
-            Lorem ipsum dolor sit amet,<br />
-            consectetur adipiscing elit
-          </p>
+          <h3 data-percent="90">0%</h3>
+          <p>Lorem ipsum dolor sit amet,<br />consectetur adipiscing elit</p>
         </div>
       </div>
     </section>
+
     <section class="comparison">
       <div class="comparison__container">
         <span class="eyebrow">---</span>
@@ -282,7 +435,7 @@
           </table>
         </div>
 
-        <a href="#" class="cta">Try It Risk-Free</a>
+        <a href="#" class="cta risk-free">Try It Risk-Free</a>
       </div>
     </section>
     <footer class="footer">
@@ -304,7 +457,7 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
 
-          <ul>
+          <ul class="social-menu">
             <li><a href="#" class="facebook">Facebook</a></li>
             <li><a href="#" class="instagram">Instagram</a></li>
             <li><a href="#" class="x">X</a></li>
@@ -322,13 +475,14 @@
           </div>
 
           <p>
-            .By subscribing you agree to with our
+            By subscribing you agree to with our
             <a href="#">Privacy Policy</a> and provide consent to receive
             updates from our company.
           </p>
         </div>
       </div>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
