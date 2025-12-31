@@ -450,12 +450,13 @@ footer {
 
 .hero {
   min-height: 100vh;
-  background: url('../assets/hero-bg.png') center bottom / cover no-repeat;
+  background: image-set('../assets/hero-bg.png') center bottom / cover no-repeat;
   display: flex;
   align-items: center;
   position: relative;
   z-index: 1;
   padding: 0 1rem; /* 16px */
+
   @include up(md) {
     padding: 0 2rem; /* 32px */
   }

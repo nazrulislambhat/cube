@@ -439,7 +439,7 @@ footer .newsletter p {
 
 .hero {
   min-height: 100vh;
-  background: url("../assets/hero-bg.png") center bottom/cover no-repeat;
+  background: image-set("../assets/hero-bg.png") center bottom/cover no-repeat;
   display: flex;
   align-items: center;
   position: relative;
