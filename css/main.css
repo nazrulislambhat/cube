@@ -632,15 +632,19 @@ footer .newsletter p {
 .collection__container {
   display: flex;
   flex-direction: column;
+  gap: 0;
+  align-items: center;
+}
+@media (min-width: 48rem) {
+  .collection__container {
+    flex-direction: row;
+    gap: 32px;
+  }
 }
 @media (min-width: 75rem) {
   .collection__container {
-    flex-direction: row;
+    gap: 0px;
   }
-}
-.collection__container {
-  gap: 0;
-  align-items: center;
 }
 
 .collection__content {
@@ -741,6 +745,12 @@ footer .newsletter p {
 }
 .collection__image img:hover {
   transform: scale(1.01);
+}
+@media (min-width: 48rem) {
+  .collection__image img {
+    width: 26.875rem; /* 590px */
+    height: 34.375rem; /* 710px */
+  }
 }
 @media (min-width: 75rem) {
   .collection__image img {

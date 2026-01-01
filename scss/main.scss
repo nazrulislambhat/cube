@@ -624,12 +624,15 @@ footer {
 .collection__container {
   display: flex;
   flex-direction: column;
-
-  @include up(xl) {
-    flex-direction: row;
-  }
   gap: 0;
   align-items: center;
+  @include up(md) {
+    flex-direction: row;
+    gap: 32px;
+  }
+  @include up(xl) {
+    gap: 0px;
+  }
 }
 
 .collection__content {
@@ -732,6 +735,10 @@ footer {
     transition: transform var(--transition-medium);
     &:hover {
       transform: scale(1.01);
+    }
+    @include up(md) {
+      width: 26.875rem; /* 590px */
+      height: 34.375rem; /* 710px */
     }
     @include up(xl) {
       width: 36.875rem; /* 590px */
