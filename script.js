@@ -10,7 +10,6 @@ function toggleMenu() {
 
 hamburger.addEventListener('click', toggleMenu);
 
-// Close on link click
 links.forEach((link) => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('active');
@@ -19,7 +18,6 @@ links.forEach((link) => {
   });
 });
 
-// Close on ESC key
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     hamburger.classList.remove('active');
@@ -45,8 +43,6 @@ const mainImage = document.getElementById('mainImage');
 const dotsContainer = document.getElementById('dots');
 const thumbnails = document.querySelectorAll('.thumbnails img');
 
-/* ================= DOTS ================= */
-
 function renderDots() {
   dotsContainer.innerHTML = '';
 
@@ -58,15 +54,11 @@ function renderDots() {
   });
 }
 
-/* ================= THUMBNAILS ================= */
-
 function updateThumbnails() {
   thumbnails.forEach((thumb, i) => {
     thumb.classList.toggle('active', i === current);
   });
 }
-
-/* ================= MAIN CHANGE ================= */
 
 function changeImage(index) {
   if (index < 0 || index >= images.length) return;
@@ -78,8 +70,6 @@ function changeImage(index) {
   updateThumbnails();
 }
 
-/* ================= CONTROLS ================= */
-
 document.querySelector('.next').onclick = () =>
   changeImage((current + 1) % images.length);
 
@@ -90,11 +80,7 @@ thumbnails.forEach((img, i) => {
   img.onclick = () => changeImage(i);
 });
 
-/* ================= INIT ================= */
-
-changeImage(0); // ensures sync on load
-
-//accordions
+changeImage(0);
 const accordionItems = document.querySelectorAll('.accordion-item');
 
 accordionItems.forEach((item) => {
@@ -112,7 +98,6 @@ accordionItems.forEach((item) => {
     item.querySelector('.icon').textContent = isActive ? '−' : '+';
   });
 });
-//add to cart
 const state = {
   purchase: 'single',
   singleFragrance: 'original',
@@ -120,17 +105,11 @@ const state = {
   doubleFragrance2: 'frag2',
 };
 
-/* -------------------------
-   DOM
--------------------------- */
 const addToCartBtn = document.getElementById('addToCart');
 
 const singleBox = document.getElementById('singleBox');
 const doubleBox = document.getElementById('doubleBox');
 
-/* -------------------------
-   HELPERS
--------------------------- */
 function normalize(text) {
   return text.toLowerCase().trim();
 }
@@ -148,9 +127,6 @@ function updateAddToCartURL() {
   console.log('Add to cart URL:', url);
 }
 
-/* -------------------------
-   PURCHASE TYPE TOGGLE
--------------------------- */
 document.querySelectorAll('input[name="purchase"]').forEach((radio) => {
   radio.addEventListener('change', (e) => {
     state.purchase = e.target.value;
@@ -167,9 +143,6 @@ document.querySelectorAll('input[name="purchase"]').forEach((radio) => {
   });
 });
 
-/* -------------------------
-   SINGLE FRAGRANCE
--------------------------- */
 document.querySelectorAll('#singleBox .fragrance').forEach((card) => {
   card.addEventListener('click', () => {
     document.querySelectorAll('#singleBox .fragrance');
@@ -180,9 +153,6 @@ document.querySelectorAll('#singleBox .fragrance').forEach((card) => {
   });
 });
 
-/* -------------------------
-   DOUBLE – FRAGRANCE 1
--------------------------- */
 document.querySelectorAll('.fragrance-1 .fragrance').forEach((card) => {
   card.addEventListener('click', () => {
     document.querySelectorAll('.fragrance-1 .fragrance');
@@ -193,9 +163,6 @@ document.querySelectorAll('.fragrance-1 .fragrance').forEach((card) => {
   });
 });
 
-/* -------------------------
-   DOUBLE – FRAGRANCE 2
--------------------------- */
 document.querySelectorAll('.fragrance-2 .fragrance').forEach((card) => {
   card.addEventListener('click', () => {
     document.querySelectorAll('.fragrance-2 .fragrance');
@@ -206,19 +173,14 @@ document.querySelectorAll('.fragrance-2 .fragrance').forEach((card) => {
   });
 });
 
-/* -------------------------
-   INIT
--------------------------- */
 updateAddToCartURL();
-
-//numbers counter
 
 const counters = document.querySelectorAll('.stat h3');
 
 const animateCounter = (el) => {
   const target = +el.dataset.percent;
   let current = 0;
-  const duration = 1200; // ms
+  const duration = 1200;
   const increment = target / (duration / 16);
 
   const update = () => {
@@ -239,7 +201,7 @@ const observer = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         animateCounter(entry.target);
-        obs.unobserve(entry.target); // run only once
+        obs.unobserve(entry.target);
       }
     });
   },
